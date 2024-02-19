@@ -37,14 +37,14 @@
                   </ul>
                 </div>
                 <div class="navbar-end">
-                  <a class="btn bg-lime-200 text-green-600">Bus<img class="w-8" src="/images/bus-logo.png"></a>
+                  <a class="btn bg-lime-200 text-green-600">Bus<img class="w-8" src="./images/bus-logo.png"></a>
                   
                 </div>
               </div>
         </div>
     </nav>
     <header>
-        <div class="max-full h-screen  border-slate-400 bg-[url('/images/banner.png')] bg-cover ">
+        <div class="max-full h-screen  border-slate-400 bg-[url('./images/banner.png')] bg-cover ">
           <div class="flex col-1 justify-center mt-10">
             <h class="text-center text-6xl text-white mt-24">END-TO-END TRAVEL</h1>
             <h3 >AB Paribahan</h3>
@@ -88,7 +88,7 @@
           <!-- Column 1 -->
           <div class="flex items-center border-indigo-500">
             <img src="/images/bus-icon.png" alt="Logo 1" class="w-10 h-10 mr-2">
-            <p>SKYLINE Parebaha<br>Coach No:4042 AC Deluxe</p>
+            <p>SKYLINE Parebahan<br>Coach No:4042 AC Deluxe</p>
           </div>
         
           <!-- Column 2 -->
@@ -121,7 +121,7 @@
         </div>
       </div>
       <!.. bus section...>
-      <div class="flex">
+      <div id="bus-seat" class="flex">
         <div class=" bg-white w-3/5 h-2/3 mt-12 mx-16">
           <div>
             <h3 class="ml-8 text-2xl border-t border-b border-dotted border-gray-400">Select your seat</h3>
@@ -142,27 +142,27 @@
               <div>A
               </div>
               <div>
-                <button class="seat btn">A1</button>
+                <button onclick="toggleSeat(this)" class="seat btn">A1</button>
               </div>
-              <div><button class="seat btn">A2</button></div>
-              <div><button class="seat btn">A3</button></div>
-              <div><button class="seat btn">A4</button></div>
+              <div><button onclick="toggleSeat(this)" class="seat btn">A2</button></div>
+              <div><button onclick="toggleSeat(this)" class="seat btn">A3</button></div>
+              <div><button onclick="toggleSeat(this)" class="seat btn">A4</button></div>
               <div>B</div>
               <div>
-                <button class="btn">B1</button>
+                <button onclick="toggleSeat(this)" class="btn">B1</button>
               </div>
-              <div><button class="seat btn">B2</button></div>
-              <div><button class="seat btn">B3</button></div>
-              <div><button class="seat btn">B4</button></div>
+              <div><button onclick="toggleSeat(this)" class="seat btn">B2</button></div>
+              <div><button onclick="toggleSeat(this)" class="seat btn">B3</button></div>
+              <div><button onclick="toggleSeat(this)" class="seat btn">B4</button></div>
   
               <div>C
               </div>
               <div>
-                <button class="seat btn">C1</button>
+                <button onclick="toggleSeat(this)" class="seat btn">C1</button>
               </div>
-              <div><button class="seat btn">C2</button></div>
-              <div><button class="seat btn">C3</button></div>
-              <div><button class="seat btn">C4</button></div>
+              <div><button onclick="toggleSeat(this)" class="seat btn">C2</button></div>
+              <div><button onclick="toggleSeat(this)" class="seat btn">C3</button></div>
+              <div><button onclick="toggleSeat(this)" class="seat btn">C4</button></div>
             </div>
           </div>
           
@@ -211,7 +211,7 @@
               <input type="number" name="name" autocomplete="given-name" placeholder="Enter your phone number" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
               <label for="email-id" class="block text-sm font-medium leading-6 text-gray-900">E-mail Id</label>
               <input type="text" name="name" autocomplete="given-name" placeholder="Enter your e-mail address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-              <button onclick="showSuccessPageById()" class="btn w-full mt-10 bg-green-200">Next</button>
+              <button onclick="next()" class="btn w-full mt-10 bg-green-200">Next</button>
             </div>
             <div class="flex justify-between mt-8 mb-6">
               <p class="border-b">Terms and condition</p>
@@ -222,8 +222,8 @@
       
     </section>
 
-    <section>
-      <div id="show-success" class="w-4/5 bg-green-200 mt-20 mx-48 text-center hidden">
+    <section id="successPage" class="hidden">
+      <div class="w-4/5 bg-green-200 mt-20 mx-48 text-center">
         <div class="w-96 ml-96 mb-12">
           <img src="./images/success.png" class=" mt-12 pt-3" alt="">
         </div>
@@ -234,23 +234,7 @@
       </div>
     </section>
     <script src="js/script.js"></script>
-    <script>
-      let availableSeats = 40;
-  
-      document.querySelectorAll('.seat').forEach(seat => {
-          seat.addEventListener('click', () => {
-              if (!seat.classList.contains('bg-blue-500')) {
-                  seat.classList.toggle('bg-blue-500');
-                  seat.classList.toggle('text-white');
-                  availableSeats--;
-                  document.getElementById('available-seats').innerText = availableSeats;
-                  const bookedSeatsTable = document.querySelector('#booked-seats tbody');
-                  //const newRow = bookedSeatsTable.insertRow(-1);
-                  //const cell = newRow.insertCell(0);
-                  //cell.textContent = seat.textContent;
-              }
-          });
-      });
-  </script>
+   
+
 </body>
 </html>
